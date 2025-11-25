@@ -21,13 +21,12 @@ export async function transferTSFile(filePath: string, mockServer: Express, opti
   const pbjsFilePath = await getPbjsFile(filePath, options);
   const pbtsFilePath = await getPbtsFile(pbjsFilePath, options);
   await fs.promises.unlink(pbjsFilePath);
-  await saveTypeScriptDefineFile(pbtsFilePath, options);
-  await saveApiFile(pbtsFilePath, options);
+  const apiMethods = await saveApiFile(filePath, pbtsFilePath, options);
   const jsonSchemaFilePath = await saveJSONSchemaFile(pbtsFilePath);
   const mockFilePath = await saveMockJSONFile(jsonSchemaFilePath);
   console.log(`success generate ${filePath} to ${path.resolve(options.folder, filePath)}.d.ts and ${path.resolve(options.folder, filePath)}.ts`);
   if (options.mock && mockServer) {
     console.log('begin open mock server');
-    await generateMockRoute(mockFilePath, mockServer, options);
+    await generateMockRoute(apiMethods, mockFilePath, mockServer, options);
   }
 }

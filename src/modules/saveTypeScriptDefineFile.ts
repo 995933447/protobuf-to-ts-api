@@ -1,7 +1,7 @@
 import { ImportDeclaration, Project } from 'ts-morph';
 
 import { IOptions } from '../interfaces/IOptions';
-import { travelAllModule } from './travelAllModule';
+import { travelTopModule } from './travelAllModule';
 
 /**
  * 去除protobuf-cli生成的d.ts文件中的冗余的class模块
@@ -22,7 +22,7 @@ export async function saveTypeScriptDefineFile(pbtsFilePath: string, options: IO
     p.remove();
   });
 
-  travelAllModule(modules, module => {
+  travelTopModule(modules, async module => {
     // 去掉生成的class
     const classes = module.getClasses();
     classes.forEach(c => c.remove());
@@ -30,6 +30,15 @@ export async function saveTypeScriptDefineFile(pbtsFilePath: string, options: IO
     // 去掉生成的rpc-type
     const typeAliases = module.getTypeAliases();
     typeAliases.forEach(t => t.remove());
+
+    const subModules = module.getModules();
+    subModules.forEach(m => {
+      const kind = m.getDeclarationKind();
+      if (kind === 'namespace') {
+        console.log("This is a namespace:", m.getName());
+        m.remove();
+      }
+    });
 
     if (!options.optional) {
       module.getInterfaces().forEach(item => {
