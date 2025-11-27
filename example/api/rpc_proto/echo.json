@@ -76,6 +76,40 @@
         }
       }
     },
+    "echo.IDeleteExampleDataRsp": {
+      "description": "Properties of a DeleteExampleDataRsp.",
+      "type": "object",
+      "properties": {
+        "status": {
+          "description": "DeleteExampleDataRsp status",
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/echo.Status"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "msg": {
+          "description": "DeleteExampleDataRsp msg",
+          "type": [
+            "null",
+            "string"
+          ]
+        },
+        "code": {
+          "description": "DeleteExampleDataRsp code",
+          "type": [
+            "null",
+            "number"
+          ]
+        }
+      }
+    },
     "echo.Status": {
       "description": "Status enum.",
       "enum": [

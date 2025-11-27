@@ -14,4 +14,9 @@ export class EchoService {
     return await request.post('/postExampleData', req)
   };
 
+  /** no comment **/
+  static async deleteExampleData(req: api.echo.IDeleteExampleDataReq): Promise<api.echo.IDeleteExampleDataRsp> {
+    return await request.delete('/v1/example/data', req)
+  };
+
 };

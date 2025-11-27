@@ -23,10 +23,20 @@ message GetExampleDataRsp {
 
 message PostExampleDataReq {
   int32 id = 1;
-  string name = 2;
+  string nick_name = 2;
 }
 
 message PostExampleDataRsp {
+  repeated Status status = 1;
+  optional string msg = 2;
+  int32 code = 3;
+}
+
+message DeleteExampleDataReq {
+  int32 id = 1;
+}
+
+message DeleteExampleDataRsp {
   repeated Status status = 1;
   optional string msg = 2;
   int32 code = 3;
@@ -44,4 +54,10 @@ service Echo {
       method: "POST"
     };
   };
-}
+  rpc deleteExampleData (DeleteExampleDataReq) returns (DeleteExampleDataRsp) {
+    option (http_ext.http_rule) = {
+      method: "DELETE"
+      path: "/v1/example/data"
+    };
+  };
+} 

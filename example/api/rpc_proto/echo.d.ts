@@ -234,8 +234,8 @@ export namespace echo {
         /** PostExampleDataReq id */
         id?: (number|null);
 
-        /** PostExampleDataReq name */
-        name?: (string|null);
+        /** PostExampleDataReq nick_name */
+        nick_name?: (string|null);
     }
 
     /** Represents a PostExampleDataReq. */
@@ -250,8 +250,8 @@ export namespace echo {
         /** PostExampleDataReq id. */
         public id: number;
 
-        /** PostExampleDataReq name. */
-        public name: string;
+        /** PostExampleDataReq nick_name. */
+        public nick_name: string;
 
         /**
          * Creates a new PostExampleDataReq instance using the specified properties.
@@ -443,6 +443,215 @@ export namespace echo {
         public static getTypeUrl(typeUrlPrefix?: string): string;
     }
 
+    /** Properties of a DeleteExampleDataReq. */
+    interface IDeleteExampleDataReq {
+
+        /** DeleteExampleDataReq id */
+        id?: (number|null);
+    }
+
+    /** Represents a DeleteExampleDataReq. */
+    class DeleteExampleDataReq implements IDeleteExampleDataReq {
+
+        /**
+         * Constructs a new DeleteExampleDataReq.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: echo.IDeleteExampleDataReq);
+
+        /** DeleteExampleDataReq id. */
+        public id: number;
+
+        /**
+         * Creates a new DeleteExampleDataReq instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DeleteExampleDataReq instance
+         */
+        public static create(properties?: echo.IDeleteExampleDataReq): echo.DeleteExampleDataReq;
+
+        /**
+         * Encodes the specified DeleteExampleDataReq message. Does not implicitly {@link echo.DeleteExampleDataReq.verify|verify} messages.
+         * @param message DeleteExampleDataReq message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: echo.IDeleteExampleDataReq, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified DeleteExampleDataReq message, length delimited. Does not implicitly {@link echo.DeleteExampleDataReq.verify|verify} messages.
+         * @param message DeleteExampleDataReq message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: echo.IDeleteExampleDataReq, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a DeleteExampleDataReq message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DeleteExampleDataReq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): echo.DeleteExampleDataReq;
+
+        /**
+         * Decodes a DeleteExampleDataReq message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DeleteExampleDataReq
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): echo.DeleteExampleDataReq;
+
+        /**
+         * Verifies a DeleteExampleDataReq message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a DeleteExampleDataReq message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns DeleteExampleDataReq
+         */
+        public static fromObject(object: { [k: string]: any }): echo.DeleteExampleDataReq;
+
+        /**
+         * Creates a plain object from a DeleteExampleDataReq message. Also converts values to other types if specified.
+         * @param message DeleteExampleDataReq
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: echo.DeleteExampleDataReq, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this DeleteExampleDataReq to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for DeleteExampleDataReq
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
+    }
+
+    /** Properties of a DeleteExampleDataRsp. */
+    interface IDeleteExampleDataRsp {
+
+        /** DeleteExampleDataRsp status */
+        status?: (echo.Status[]|null);
+
+        /** DeleteExampleDataRsp msg */
+        msg?: (string|null);
+
+        /** DeleteExampleDataRsp code */
+        code?: (number|null);
+    }
+
+    /** Represents a DeleteExampleDataRsp. */
+    class DeleteExampleDataRsp implements IDeleteExampleDataRsp {
+
+        /**
+         * Constructs a new DeleteExampleDataRsp.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: echo.IDeleteExampleDataRsp);
+
+        /** DeleteExampleDataRsp status. */
+        public status: echo.Status[];
+
+        /** DeleteExampleDataRsp msg. */
+        public msg?: (string|null);
+
+        /** DeleteExampleDataRsp code. */
+        public code: number;
+
+        /** DeleteExampleDataRsp _msg. */
+        public _msg?: "msg";
+
+        /**
+         * Creates a new DeleteExampleDataRsp instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns DeleteExampleDataRsp instance
+         */
+        public static create(properties?: echo.IDeleteExampleDataRsp): echo.DeleteExampleDataRsp;
+
+        /**
+         * Encodes the specified DeleteExampleDataRsp message. Does not implicitly {@link echo.DeleteExampleDataRsp.verify|verify} messages.
+         * @param message DeleteExampleDataRsp message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: echo.IDeleteExampleDataRsp, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified DeleteExampleDataRsp message, length delimited. Does not implicitly {@link echo.DeleteExampleDataRsp.verify|verify} messages.
+         * @param message DeleteExampleDataRsp message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: echo.IDeleteExampleDataRsp, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a DeleteExampleDataRsp message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns DeleteExampleDataRsp
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): echo.DeleteExampleDataRsp;
+
+        /**
+         * Decodes a DeleteExampleDataRsp message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns DeleteExampleDataRsp
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): echo.DeleteExampleDataRsp;
+
+        /**
+         * Verifies a DeleteExampleDataRsp message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a DeleteExampleDataRsp message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns DeleteExampleDataRsp
+         */
+        public static fromObject(object: { [k: string]: any }): echo.DeleteExampleDataRsp;
+
+        /**
+         * Creates a plain object from a DeleteExampleDataRsp message. Also converts values to other types if specified.
+         * @param message DeleteExampleDataRsp
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: echo.DeleteExampleDataRsp, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this DeleteExampleDataRsp to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+
+        /**
+         * Gets the default type url for DeleteExampleDataRsp
+         * @param [typeUrlPrefix] your custom typeUrlPrefix(default "type.googleapis.com")
+         * @returns The default type url
+         */
+        public static getTypeUrl(typeUrlPrefix?: string): string;
+    }
+
     /** Represents an Echo */
     class Echo extends $protobuf.rpc.Service {
 
@@ -490,6 +699,20 @@ export namespace echo {
          * @returns Promise
          */
         public postExampleData(request: echo.IPostExampleDataReq): Promise<echo.PostExampleDataRsp>;
+
+        /**
+         * Calls deleteExampleData.
+         * @param request DeleteExampleDataReq message or plain object
+         * @param callback Node-style callback called with the error, if any, and DeleteExampleDataRsp
+         */
+        public deleteExampleData(request: echo.IDeleteExampleDataReq, callback: echo.Echo.deleteExampleDataCallback): void;
+
+        /**
+         * Calls deleteExampleData.
+         * @param request DeleteExampleDataReq message or plain object
+         * @returns Promise
+         */
+        public deleteExampleData(request: echo.IDeleteExampleDataReq): Promise<echo.DeleteExampleDataRsp>;
     }
 
     namespace Echo {
@@ -507,6 +730,13 @@ export namespace echo {
          * @param [response] PostExampleDataRsp
          */
         type postExampleDataCallback = (error: (Error|null), response?: echo.PostExampleDataRsp) => void;
+
+        /**
+         * Callback as used by {@link echo.Echo#deleteExampleData}.
+         * @param error Error, if any
+         * @param [response] DeleteExampleDataRsp
+         */
+        type deleteExampleDataCallback = (error: (Error|null), response?: echo.DeleteExampleDataRsp) => void;
     }
 }
 
