@@ -1,5 +1,7 @@
 syntax = "proto3";
-package test;
+package echo;
+
+import "http_ext.proto";
 
 enum Status {
   SUCCESS = 0;
@@ -30,7 +32,16 @@ message PostExampleDataRsp {
   int32 code = 3;
 }
 
-service API {
-  rpc getExampleData (GetExampleDataReq) returns (GetExampleDataRsp);
-  rpc postExampleData (PostExampleDataReq) returns (PostExampleDataRsp);
+service Echo {
+  rpc getExampleData (GetExampleDataReq) returns (GetExampleDataRsp) {
+    option (http_ext.http_rule) = {
+      method: "GET"
+      path: "/v1/example/data"
+    };
+  };
+  rpc postExampleData (PostExampleDataReq) returns (PostExampleDataRsp) {
+    option (http_ext.http_rule) = {
+      method: "POST"
+    };
+  };
 }

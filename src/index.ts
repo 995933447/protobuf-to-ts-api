@@ -55,6 +55,12 @@ export async function main() {
       process.exit(1);
     }
     const { _: files } = argv;
+    const includeProtos: string[] = [];
+    if (typeof argv.includeProtos === 'string') {
+      includeProtos.push(argv.includeProtos as string);
+    } else {
+      includeProtos.push(...(argv.includeProtos as string[] || []));
+    }
     const options: IOptions = {
       requestModule: argv.requestModule,
       baseUrl: argv.baseUrl,
@@ -64,7 +70,7 @@ export async function main() {
       mock: argv.mock,
       port: argv.port,
       help: argv.help,
-      includeProtos: argv.includeProtos || [], // 新增的包含proto文件路径列表
+      includeProtos: includeProtos, // 新增的包含proto文件路径列表
       protoOptionTagHttpMethod: argv.protoOptionTagHttpMethod,
       protoOptionTagHttpPath: argv.protoOptionTagHttpPath,
     };

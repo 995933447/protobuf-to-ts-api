@@ -1,0 +1,20 @@
+{
+  "GetExampleData": {
+    "status": [
+      2,
+      1,
+      0,
+      2
+    ],
+    "msg": null,
+    "city": null,
+    "code": null
+  },
+  "PostExampleData": {
+    "status": [
+      1
+    ],
+    "msg": "aute esse reprehenderit nisi",
+    "code": null
+  }
+}
