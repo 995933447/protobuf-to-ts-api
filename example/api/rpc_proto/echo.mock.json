@@ -1,26 +1,18 @@
 {
   "GetExampleData": {
-    "status": [
-      0,
-      1,
-      0,
-      2,
-      0
-    ],
+    "status": [],
     "msg": null,
-    "city": "do dolor deserunt Ut sit",
+    "city": null,
     "code": null
   },
   "PostExampleData": {
     "status": null,
     "msg": null,
-    "code": 82501422.48953304
+    "code": null
   },
   "DeleteExampleData": {
-    "status": [
-      1
-    ],
-    "msg": "in eiusmod exercitation minim incididunt",
+    "status": null,
+    "msg": "non",
     "code": null
   }
 }

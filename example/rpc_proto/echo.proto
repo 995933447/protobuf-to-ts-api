@@ -43,12 +43,14 @@ message DeleteExampleDataRsp {
 }
 
 service Echo {
+  // 获取示例数据
   rpc getExampleData (GetExampleDataReq) returns (GetExampleDataRsp) {
     option (http_ext.http_rule) = {
       method: "GET"
       path: "/v1/example/data"
     };
   };
+  // 提交示例数据
   rpc postExampleData (PostExampleDataReq) returns (PostExampleDataRsp) {
     option (http_ext.http_rule) = {
       method: "POST"
