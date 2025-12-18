@@ -157,7 +157,10 @@ async function parseProtoApiMethods(
                   protoOptionMethod = RequestMethods.post;
                 }
                 if (!protoOptionPath) {
-                  protoOptionPath = `/${methodName}`;
+                  protoOptionPath = `/${nestedObj.name}/${methodName}`
+                  if (namespacePath) {
+                    protoOptionPath = `/${namespacePath}/${nestedObj.name}/${methodName}`
+                  }
                 }
                 const apiMethod = new ApiMethod();
                 apiMethods.push(apiMethod);
@@ -180,7 +183,11 @@ async function parseProtoApiMethods(
             apiMethod.responseType = method.responseType;
             apiMethod.namespace = namespacePath || undefined;
             apiMethod.httpMethod = RequestMethods.post;
-            apiMethod.urlPath = options.baseUrl + `/${methodName}`;
+            let urlPath = `/${apiMethod.serviceName}/${methodName}`
+            if (apiMethod.namespace) {
+              urlPath = `/${apiMethod.namespace}/${apiMethod.serviceName}/${methodName}`
+            }
+            apiMethod.urlPath = options.baseUrl + urlPath;
             apiMethod.comment = method.comment || "";
           }
         }
