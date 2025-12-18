@@ -36,6 +36,7 @@ export async function main() {
         port: 'p',
         help: 'h',
         includeProtos: 'i',
+        importModuleStyle: 'I',
       },
       string: ['requestModule', 'baseUrl', 'folder', 'root', 'port'],
       boolean: ['optional', 'mock'],
@@ -48,6 +49,7 @@ export async function main() {
         mock: false,
         port: '3000',
         help: '',
+        importModuleStyle: 'es6',
       },
     });
     if (argv.help) {
@@ -73,6 +75,7 @@ export async function main() {
       includeProtos: includeProtos, // 新增的包含proto文件路径列表
       protoOptionTagHttpMethod: argv.protoOptionTagHttpMethod,
       protoOptionTagHttpPath: argv.protoOptionTagHttpPath,
+      importModuleStyle: argv.importModuleStyle,
     };
     if (!files.length) {
       process.stderr.write(getUsage());

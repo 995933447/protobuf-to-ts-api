@@ -9,7 +9,7 @@ import { generateMockRoute } from './mockServer';
 import { saveApiFile } from './saveApiFile';
 import { saveJSONSchemaFile } from './saveJSONSchemaFile';
 import { saveMockJSONFile } from './saveMockJSONFile';
-import { saveTypeScriptDefineFile } from './saveTypeScriptDefineFile';
+import { replaceInFile } from './saveTypeScriptDefineFile';
 
 /**
  * 转换protobuf定义文件为ts定义文件和api请求文件
@@ -20,7 +20,7 @@ import { saveTypeScriptDefineFile } from './saveTypeScriptDefineFile';
 export async function transferTSFile(filePath: string, mockServer: Express, options: IOptions) {
   const pbjsFilePath = await getPbjsFile(filePath, options);
   const pbtsFilePath = await getPbtsFile(pbjsFilePath, options);
-  await fs.promises.unlink(pbjsFilePath);
+  // await fs.promises.unlink(pbjsFilePath);
   const apiMethods = await saveApiFile(filePath, pbtsFilePath, options);
   const jsonSchemaFilePath = await saveJSONSchemaFile(pbtsFilePath);
   const mockFilePath = await saveMockJSONFile(jsonSchemaFilePath);
@@ -29,4 +29,5 @@ export async function transferTSFile(filePath: string, mockServer: Express, opti
     console.log('begin open mock server');
     await generateMockRoute(apiMethods, mockFilePath, mockServer, options);
   }
+  await replaceInFile(pbtsFilePath, /import Long = require\("long"\);/g, 'import * as Long from "long";')
 }

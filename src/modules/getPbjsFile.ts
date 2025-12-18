@@ -21,7 +21,7 @@ export async function getPbjsFile(filePath: string, options: IOptions): Promise<
       return acc.concat(['-p', path.resolve(process.cwd(), curr)]);
     }, [] as string[]);
   }
-  cmd.push('-p', options.root, '--keep-case', '-t', 'static-module', '-w', 'commonjs', '-o', pbjsFilePath, path.resolve(process.cwd(), filePath));
+  cmd.push('-p', options.root, '--keep-case', '-t', 'static-module', '-w', options.importModuleStyle, '-o', pbjsFilePath, path.resolve(process.cwd(), filePath));
   console.log('pbjs cmd:', cmd.join(' '));
   return new Promise((resolve, reject) => {
     pbjs.main(cmd, err => {

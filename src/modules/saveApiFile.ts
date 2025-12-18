@@ -82,7 +82,7 @@ export async function saveApiFile(
   }
 
   await fs.promises.writeFile(
-    path.resolve(tsDefineDirname, tsDefineFilename.replace(".d.ts", ".ts")),
+    path.resolve(tsDefineDirname, tsDefineFilename.replace(".d.ts", "_api.ts")),
     apiline
   );
   return apiMethods;

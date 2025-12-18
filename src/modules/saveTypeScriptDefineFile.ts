@@ -3,6 +3,29 @@ import { ImportDeclaration, Project } from 'ts-morph';
 import { IOptions } from '../interfaces/IOptions';
 import { travelTopModule } from './travelAllModule';
 
+import { readFile, writeFile } from 'fs/promises'
+
+export async function replaceInFile(filePath: string, searchValue: string | RegExp, replaceValue: string) {
+  try {
+    // 读取文件
+    let content = await readFile(filePath, 'utf-8')
+
+    // 替换内容
+    content = content.replace(searchValue, replaceValue)
+
+    // 写回文件
+    await writeFile(filePath, content, 'utf-8')
+
+    console.log(`✅ 替换 ${searchValue} -> ${replaceValue} 完成: ${filePath}`)
+  } catch (err) {
+    console.error('❌ 替换失败:', err)
+  }
+}
+
+export async function saveTypeScriptDefineRuntimeFile(pbtsFilePath: string, options: IOptions) {
+  
+}
+
 /**
  * 去除protobuf-cli生成的d.ts文件中的冗余的class模块
  * @param {String} pbtsFilePath 生成的d.ts定义文件的路径
